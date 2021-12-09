@@ -8,7 +8,7 @@ class FoundObject:
 
     def setColor(self, width):
         color = ''
-        if width > 5:
+        if width > 8:
             color = 'r'
         else:
             color = 'g'
@@ -18,5 +18,6 @@ class FoundObject:
         return {
             'angle': self.angle,
             'distance': self.distance,
+            'width':self.width,
             'color': self.color
         }
