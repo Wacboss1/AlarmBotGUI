@@ -8,7 +8,7 @@ class FoundObject:
 
     def setColor(self, width):
         color = ''
-        if width > 8:
+        if width > 6:
             color = 'r'
         else:
             color = 'g'
