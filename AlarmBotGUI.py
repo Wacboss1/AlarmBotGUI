@@ -63,7 +63,6 @@ def GetObjectsFromScan():
         s.send(b'y')
         while True:
             reply = s.recv(8)
-            print(reply)
             if(reply[0] == 2):
                 newObject = FoundObject(reply[1], reply[3], reply[2])
                 objects.append(newObject)
@@ -91,7 +90,6 @@ def MoveForward(amount):
         s.send(amount.to_bytes(1, 'little'))
         while True:
             reply = s.recv(8)
-            print(reply)
             if (reply[0]==3):
                 ProccessTriggers(reply)
             if(reply[0] == 0):
@@ -107,7 +105,6 @@ def RotateRight(amount):
         s.send(amount.to_bytes(1, 'little'))
         while True:
             reply = s.recv(8)
-            print(reply)
             if(reply[0] == 0):
                 break
 
@@ -119,14 +116,12 @@ def RotateLeft(amount):
         s.send(amount.to_bytes(1, 'little'))
         while True:
             reply = s.recv(8)
-            print(reply)
             if(reply[0] == 0):
                 break
 
 def WaitForStopBit(socket):
     while True:
         reply = socket.recv(8)
-        print(reply)
         if(reply[0] == 0):
             return True
 
